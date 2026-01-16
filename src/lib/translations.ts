@@ -24,10 +24,23 @@ export const translations = {
         "Full-stack developer (Django, React, SQL)",
         "Thesis researcher in AI/ML applications",
       ],
+      educationTitle: "Education",
+      education: [
+        {
+          degree: "Software Engineering",
+          school: "Universidad Autónoma de Zacatecas",
+          period: "2021 - 2025"
+        },
+        {
+          degree: "Digital Systems Technician",
+          school: "CECYT 18 \"Zacatecas\"",
+          period: "2018 - 2021",
+          license: "Professional License: 14051792"
+        }
+      ],
       certificationsTitle: "Certifications",
       certifications: [
-        "Generative AI Leader (Google)",
-        "Digital Systems Technician"
+        "Generative AI Leader (Google)"
       ],
       languagesTitle: "Languages",
       languages: [
@@ -99,7 +112,7 @@ export const translations = {
           demo: null,
           playStore: "https://play.google.com/store/apps/details?id=com.taxaf.user&pcampaignid=web_share",
           appStore: "https://apps.apple.com/mx/app/taxaf/id6748660857",
-          youtube: "https://youtu.be/TKlX189a_J4?si=AoLnTHjgEfsv9lVS", // Corregido para consistencia
+          youtube: "https://youtu.be/TKlX189a_J4?si=AoLnTHjgEfsv9lVS",
         },
         {
           title: "REDECO Complaint System",
@@ -163,10 +176,23 @@ export const translations = {
         "Desarrollador full-stack (Django, React, SQL)",
         "Investigador de tesis en aplicaciones de IA/ML",
       ],
+      educationTitle: "Formación Académica",
+      education: [
+        {
+          degree: "Ingeniería de Software",
+          school: "Universidad Autónoma de Zacatecas",
+          period: "2021 - 2025"
+        },
+        {
+          degree: "Técnico en Sistemas Digitales",
+          school: "CECYT 18 \"Zacatecas\"",
+          period: "2018 - 2021",
+          license: "Cédula Profesional: 14051792"
+        }
+      ],
       certificationsTitle: "Certificaciones",
       certifications: [
-        "Generative AI Leader (Google)",
-        "Técnico en Sistemas Digitales"
+        "Generative AI Leader (Google)"
       ],
       languagesTitle: "Idiomas",
       languages: [
@@ -238,7 +264,7 @@ export const translations = {
           demo: null,
           playStore: "https://play.google.com/store/apps/details?id=com.taxaf.user&pcampaignid=web_share",
           appStore: "https://apps.apple.com/mx/app/taxaf/id6748660857",
-          youtube: "https://youtu.be/TKlX189a_J4?si=AoLnTHjgEfsv9lVS", // ENLACE CORREGIDO AQUÍ (TKlX en vez de TKIX)
+          youtube: "https://youtu.be/TKlX189a_J4?si=AoLnTHjgEfsv9lVS",
         },
         {
           title: "Sistema de Quejas REDECO",

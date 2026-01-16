@@ -3,7 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Award, Globe } from "lucide-react"; // 1. Se eliminó CheckCircle2
+import { Award, Globe, GraduationCap } from "lucide-react";
 
 export function AboutSection() {
   const { t } = useLanguage();
@@ -28,14 +28,34 @@ export function AboutSection() {
               {t.about.description}
             </p>
 
-            {/* 2. Se ajustó el layout para centrar el contenido restante (antes era grid-cols-2) */}
             <div className="flex flex-col items-center">
               
-              {/* Se eliminó el bloque de "Highlights Originales" aquí */}
-
-              {/* Columna: Certificaciones e Idiomas */}
               <div className="space-y-8 w-full max-w-lg">
                 
+                {/* Nueva Sección: Formación Académica */}
+                <div>
+                  <h3 className="font-semibold text-xl mb-4 flex items-center gap-2">
+                    <GraduationCap className="h-5 w-5 text-primary" />
+                    {t.about.educationTitle}
+                  </h3>
+                  <div className="space-y-4">
+                    {t.about.education.map((edu, index) => (
+                      <div key={index} className="bg-background/50 p-4 rounded-lg border border-border/50">
+                        <h4 className="font-semibold text-foreground">{edu.degree}</h4>
+                        <p className="text-sm text-primary/80">{edu.school}</p>
+                        <div className="flex justify-between items-center mt-1">
+                          <p className="text-xs text-muted-foreground">{edu.period}</p>
+                          {edu.license && (
+                            <Badge variant="outline" className="text-[10px] h-5">
+                              {edu.license}
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Certificaciones */}
                 <div>
                   <h3 className="font-semibold text-xl mb-4 flex items-center gap-2">
