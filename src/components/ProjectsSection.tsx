@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, ChevronRight } from "lucide-react";
+import { ExternalLink, Github, ChevronRight, Youtube } from "lucide-react"; // 1. Importamos Youtube
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -120,6 +120,15 @@ export function ProjectsSection() {
                         </Button>
                       )}
 
+                      {/* 2. Botón de YouTube agregado en la Tarjeta */}
+                      {project.youtube && (
+                        <Button variant="ghost" size="icon" asChild>
+                          <a href={project.youtube} target="_blank" rel="noopener noreferrer">
+                            <Youtube className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+
                       {/* Store Links for Cards (Icon only) */}
                       {project.playStore && (
                         <Button variant="ghost" size="icon" asChild>
@@ -181,28 +190,47 @@ export function ProjectsSection() {
 
                   <div className="flex flex-col gap-3">
                     {/* Primary Actions */}
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 flex-wrap">
                         <Button className="flex-1 gap-2" asChild>
-                        <a
-                            href={t.projects.items[selectedProject].github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Github className="h-4 w-4" />
-                            {t.projects.viewCode}
-                        </a>
+                          <a
+                              href={t.projects.items[selectedProject].github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                          >
+                              <Github className="h-4 w-4" />
+                              {t.projects.viewCode}
+                          </a>
                         </Button>
+                        
                         {t.projects.items[selectedProject].demo && (
-                        <Button variant="outline" className="flex-1 gap-2" asChild>
-                            <a
-                            href={t.projects.items[selectedProject].demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >
-                            <ExternalLink className="h-4 w-4" />
-                            {t.projects.liveDemo}
-                            </a>
-                        </Button>
+                          <Button variant="outline" className="flex-1 gap-2" asChild>
+                              <a
+                              href={t.projects.items[selectedProject].demo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              >
+                              <ExternalLink className="h-4 w-4" />
+                              {t.projects.liveDemo}
+                              </a>
+                          </Button>
+                        )}
+
+                        {/* 3. Botón de YouTube agregado en el Modal */}
+                        {t.projects.items[selectedProject].youtube && (
+                          <Button 
+                            variant="outline" 
+                            className="flex-1 gap-2 hover:text-red-600 hover:border-red-600 transition-colors" 
+                            asChild
+                          >
+                              <a
+                              href={t.projects.items[selectedProject].youtube}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              >
+                              <Youtube className="h-4 w-4" />
+                              {t.projects.videoDemo || "Video Demo"}
+                              </a>
+                          </Button>
                         )}
                     </div>
 

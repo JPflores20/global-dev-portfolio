@@ -100,7 +100,7 @@ export const translations = {
           demo: null,
           playStore: "https://play.google.com/store/apps/details?id=com.taxaf.user&pcampaignid=web_share",
           appStore: "https://apps.apple.com/mx/app/taxaf/id6748660857",
-          youtube: "https://youtu.be/TKIX189a_J4", // NUEVO ENLACE
+          youtube: "https://www.youtube.com/watch?v=TKlX189a_J4", // NUEVO ENLACE
         },
         {
           title: "REDECO Complaint System",
