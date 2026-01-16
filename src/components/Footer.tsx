@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Heart, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   const { t } = useLanguage();
@@ -19,15 +19,7 @@ export function Footer() {
             <span>{t.footer.rights}</span>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center gap-1 text-muted-foreground"
-          >
-            {t.footer.madeWith}
-            <Heart className="h-4 w-4 text-red-500 fill-red-500 mx-1" />
-            <span className="gradient-text font-semibold">React & Tailwind</span>
-          </motion.div>
+          {/* Se eliminó la sección "Made with..." */}
 
           <motion.div
             initial={{ opacity: 0 }}
