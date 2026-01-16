@@ -1,0 +1,208 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Mail, Phone, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  email: z.string().trim().email("Invalid email address").max(255),
+  message: z.string().trim().min(1, "Message is required").max(1000),
+});
+
+export function ContactSection() {
+  const { t } = useLanguage();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { toast } = useToast();
+  
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user types
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrors({});
+
+    // Validate form data
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          fieldErrors[err.path[0] as string] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // For now, just show success - email integration pending API key
+    setTimeout(() => {
+      toast({
+        title: t.contact.form.success,
+        description: "Email functionality will be enabled soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
+  return (
+    <section id="contact" className="py-20 md:py-32" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="gradient-text">{t.contact.title}</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">{t.contact.subtitle}</p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="name">{t.contact.form.name}</Label>
+                <Input
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder={t.contact.form.name}
+                  className={errors.name ? "border-destructive" : ""}
+                />
+                {errors.name && (
+                  <p className="text-sm text-destructive">{errors.name}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="email">{t.contact.form.email}</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder={t.contact.form.email}
+                  className={errors.email ? "border-destructive" : ""}
+                />
+                {errors.email && (
+                  <p className="text-sm text-destructive">{errors.email}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="message">{t.contact.form.message}</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder={t.contact.form.message}
+                  rows={5}
+                  className={errors.message ? "border-destructive" : ""}
+                />
+                {errors.message && (
+                  <p className="text-sm text-destructive">{errors.message}</p>
+                )}
+              </div>
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full gradient-bg text-white gap-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      className="h-4 w-4 border-2 border-white border-t-transparent rounded-full"
+                    />
+                    {t.contact.form.sending}
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" />
+                    {t.contact.form.send}
+                  </>
+                )}
+              </Button>
+            </form>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col justify-center space-y-8"
+          >
+            <div className="glass-card p-6 flex items-center gap-4 hover:scale-105 transition-transform">
+              <div className="p-4 rounded-xl gradient-bg text-white">
+                <Phone className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">{t.contact.info.phone}</p>
+                <a
+                  href="tel:+524921954970"
+                  className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
+                >
+                  +52 492-195-4970
+                </a>
+              </div>
+            </div>
+
+            <div className="glass-card p-6 flex items-center gap-4 hover:scale-105 transition-transform">
+              <div className="p-4 rounded-xl gradient-bg text-white">
+                <Mail className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">{t.contact.info.email}</p>
+                <a
+                  href="mailto:pepe.jlfc.16@gmail.com"
+                  className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
+                >
+                  pepe.jlfc.16@gmail.com
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
