@@ -1,25 +1,18 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { translations, Language, Translations } from "@/lib/translations";
+import { createContext, useContext, useState, ReactNode } from "react";
+import { translations } from "@/lib/translations";
+import type { Language, Translations } from "@/lib/translations";
 
-interface LanguageContextType {
+type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: Translations;
-}
+};
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem("portfolio-language");
-    if (saved === "en" || saved === "es") return saved;
-    // Default to Spanish
-    return "es";
-  });
-
-  useEffect(() => {
-    localStorage.setItem("portfolio-language", language);
-  }, [language]);
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  // CAMBIO REALIZADO: El valor inicial ahora es "en" (inglés)
+  const [language, setLanguage] = useState<Language>("en");
 
   const t = translations[language];
 

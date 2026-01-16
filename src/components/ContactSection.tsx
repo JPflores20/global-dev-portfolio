@@ -38,7 +38,8 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 export function ContactSection() {
-  const { t } = useLanguage();
+  // Obtenemos 'language' del contexto para definir el mensaje
+  const { t, language } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
@@ -50,6 +51,14 @@ export function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  // Lógica para el mensaje de WhatsApp dinámico
+  const whatsappMessage = language === "en"
+    ? "Hello José Luis, I saw your portfolio and would like to contact you."
+    : "Hola José Luis, vi tu portafolio y me gustaría contactarte.";
+    
+  // Construimos la URL codificando el mensaje
+  const whatsappUrl = `https://wa.me/524921954970?text=${encodeURIComponent(whatsappMessage)}`;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -78,20 +87,19 @@ export function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      // --- AQUÍ OCURRE LA MAGIA: ENVÍO REAL A FIREBASE ---
       await addDoc(collection(db, "mensajes"), {
         nombre: formData.name,
         email: formData.email,
         mensaje: formData.message,
-        fecha: new Date().toISOString() // Guardamos la fecha exacta
+        fecha: new Date().toISOString()
       });
 
       toast({
-        title: "¡Mensaje Enviado!", // Mensaje de éxito real
+        title: "¡Mensaje Enviado!",
         description: "He recibido tu mensaje correctamente.",
       });
       
-      setFormData({ name: "", email: "", message: "" }); // Limpiamos el formulario
+      setFormData({ name: "", email: "", message: "" });
 
     } catch (error) {
       console.error("Error enviando a Firebase:", error);
@@ -206,7 +214,7 @@ export function ContactSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col justify-center space-y-6"
           >
-            {/* WhatsApp */}
+            {/* WhatsApp - AHORA CON MENSAJE PREDETERMINADO */}
             <div className="glass-card p-6 flex items-center gap-4 hover:scale-105 transition-transform">
               <div className="p-4 rounded-xl gradient-bg text-white">
                 <WhatsAppIcon className="h-6 w-6" />
@@ -214,7 +222,7 @@ export function ContactSection() {
               <div>
                 <p className="text-sm text-muted-foreground">{t.contact.info.phone}</p>
                 <a
-                  href="https://wa.me/524921954970"
+                  href={whatsappUrl} // Usamos la URL dinámica
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
@@ -232,10 +240,10 @@ export function ContactSection() {
               <div>
                 <p className="text-sm text-muted-foreground">{t.contact.info.email}</p>
                 <a
-                  href="mailto:pepe.jlfc.16@gmail.com"
+                  href="mailto:ingsoftjoseflores@gmail.com"
                   className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
                 >
-                  pepe.jlfc.16@gmail.com
+                  ingsoftjoseflores@gmail.com
                 </a>
               </div>
             </div>
