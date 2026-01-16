@@ -113,7 +113,7 @@ export const translations = {
         error: "Failed to send message. Please try again.",
       },
       info: {
-        phone: "Phone",
+        phone: "WhatsApp",
         email: "Email",
         linkedin: "LinkedIn",
         github: "GitHub",
@@ -238,7 +238,7 @@ export const translations = {
         error: "Error al enviar el mensaje. Por favor intenta de nuevo.",
       },
       info: {
-        phone: "Teléfono",
+        phone: "WhatsApp",
         email: "Correo",
         linkedin: "LinkedIn",
         github: "GitHub",

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Phone, Send } from "lucide-react";
+import { Mail, Send, Linkedin, Github } from "lucide-react"; // Se quitó 'Phone'
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,6 +16,22 @@ const contactSchema = z.object({
   email: z.string().trim().email("Invalid email address").max(255),
   message: z.string().trim().min(1, "Message is required").max(1000),
 });
+
+// Componente SVG personalizado para el icono de WhatsApp
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+  </svg>
+);
 
 export function ContactSection() {
   const { t } = useLanguage();
@@ -34,7 +50,6 @@ export function ContactSection() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user types
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -44,7 +59,6 @@ export function ContactSection() {
     e.preventDefault();
     setErrors({});
 
-    // Validate form data
     const result = contactSchema.safeParse(formData);
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
@@ -59,7 +73,6 @@ export function ContactSection() {
 
     setIsSubmitting(true);
 
-    // For now, just show success - email integration pending API key
     setTimeout(() => {
       toast({
         title: t.contact.form.success,
@@ -169,16 +182,19 @@ export function ContactSection() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col justify-center space-y-8"
+            className="flex flex-col justify-center space-y-6"
           >
+            {/* WhatsApp */}
             <div className="glass-card p-6 flex items-center gap-4 hover:scale-105 transition-transform">
               <div className="p-4 rounded-xl gradient-bg text-white">
-                <Phone className="h-6 w-6" />
+                <WhatsAppIcon className="h-6 w-6" /> {/* Icono actualizado */}
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">{t.contact.info.phone}</p>
                 <a
-                  href="tel:+524921954970"
+                  href="https://wa.me/524921954970"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
                 >
                   +52 492-195-4970
@@ -186,6 +202,7 @@ export function ContactSection() {
               </div>
             </div>
 
+            {/* Email */}
             <div className="glass-card p-6 flex items-center gap-4 hover:scale-105 transition-transform">
               <div className="p-4 rounded-xl gradient-bg text-white">
                 <Mail className="h-6 w-6" />
@@ -200,6 +217,43 @@ export function ContactSection() {
                 </a>
               </div>
             </div>
+
+            {/* LinkedIn */}
+            <div className="glass-card p-6 flex items-center gap-4 hover:scale-105 transition-transform">
+              <div className="p-4 rounded-xl gradient-bg text-white">
+                <Linkedin className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">{t.contact.info.linkedin}</p>
+                <a
+                  href="https://www.linkedin.com/in/jlfc2302/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
+                >
+                  linkedin.com/in/jlfc2302
+                </a>
+              </div>
+            </div>
+
+            {/* GitHub */}
+            <div className="glass-card p-6 flex items-center gap-4 hover:scale-105 transition-transform">
+              <div className="p-4 rounded-xl gradient-bg text-white">
+                <Github className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">{t.contact.info.github}</p>
+                <a
+                  href="https://github.com/JPflores20"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
+                >
+                  github.com/JPflores20
+                </a>
+              </div>
+            </div>
+
           </motion.div>
         </div>
       </div>
