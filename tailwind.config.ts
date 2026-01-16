@@ -58,7 +58,6 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      // --- SECCIÓN DE ANIMACIONES ---
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -68,12 +67,17 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        // Rotación normal (sentido horario)
+        // Mueve el ícono a lo largo de la línea
+        orbit: {
+          "0%": { offsetDistance: "0%" },
+          "100%": { offsetDistance: "100%" },
+        },
+        // Gira la elipse completa (sentido horario)
         "spin-orbit": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
-        // NUEVO: Contra-rotación (sentido anti-horario)
+        // Gira en contra (sentido anti-horario)
         "spin-counter": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(-360deg)" },
@@ -82,17 +86,17 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        // Órbitas principales
-        "orbit-slow": "spin-orbit 12s linear infinite",
-        "orbit-medium": "spin-orbit 8s linear infinite reverse",
-        "orbit-fast": "spin-orbit 5s linear infinite",
-        // NUEVO: Contra-órbitas para los íconos (deben coincidir en duración con sus padres)
-        "counter-slow": "spin-counter 12s linear infinite",
-        // La media es 'reverse' en el padre, así que su contraparte es normal 'spin-orbit'
-        "counter-medium": "spin-orbit 8s linear infinite", 
-        "counter-fast": "spin-counter 5s linear infinite",
+        // Velocidades de movimiento (travel)
+        "orbit-slow": "orbit 14s linear infinite",
+        "orbit-medium": "orbit 10s linear infinite",
+        "orbit-fast": "orbit 8s linear infinite",
+        
+        // Velocidades de rotación del eje (spin)
+        "spin-slow": "spin-orbit 20s linear infinite",       // 20s horario
+        "spin-slower": "spin-orbit 30s linear infinite",     // 30s horario
+        "spin-reverse-slow": "spin-counter 20s linear infinite",   // 20s anti-horario
+        "spin-reverse-slower": "spin-counter 30s linear infinite", // 30s anti-horario
       },
-      // ------------------------------
     },
   },
   plugins: [require("tailwindcss-animate")],

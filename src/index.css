@@ -104,3 +104,13 @@
     @apply glass rounded-2xl shadow-xl;
   }
 }
+
+/* --- ANIMACIÓN PARA LOS ORBITALES --- */
+@keyframes orbit {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
