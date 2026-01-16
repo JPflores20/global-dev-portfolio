@@ -112,11 +112,18 @@ export function Navbar() {
               </AnimatePresence>
             </Button>
 
-            {/* Download CV */}
-            <Button className="gradient-bg text-white rounded-full gap-2">
-              <Download className="h-4 w-4" />
-              {t.nav.downloadCV}
-            </Button>
+            {/* Download CV - Desktop */}
+            <a 
+              href="/CV_JoséLuisFloresCarrillo_V9.pdf" 
+              download="CV_JoséLuisFloresCarrillo.pdf"
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Button className="gradient-bg text-white rounded-full gap-2">
+                <Download className="h-4 w-4" />
+                {t.nav.downloadCV}
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -185,10 +192,19 @@ export function Navbar() {
                 </Button>
               </div>
               
-              <Button className="w-full gradient-bg text-white rounded-full gap-2">
-                <Download className="h-4 w-4" />
-                {t.nav.downloadCV}
-              </Button>
+              {/* Download CV - Mobile */}
+              <a 
+                href="/CV_JoséLuisFloresCarrillo_V9.pdf" 
+                download="CV_JoséLuisFloresCarrillo.pdf"
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block w-full"
+              >
+                <Button className="w-full gradient-bg text-white rounded-full gap-2">
+                  <Download className="h-4 w-4" />
+                  {t.nav.downloadCV}
+                </Button>
+              </a>
             </div>
           </motion.div>
         )}
