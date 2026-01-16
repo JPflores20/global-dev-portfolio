@@ -7,9 +7,11 @@ const skillsData = {
   languages: [
     { name: "Python", level: 90 },
     { name: "Dart", level: 85 },
+    { name: "Java", level: 80 },
+    { name: "JavaScript", level: 85 },
     { name: "SQL", level: 80 },
     { name: "C++", level: 75 },
-    { name: "TypeScript", level: 70 },
+    { name: "HTML/CSS", level: 90 },
   ],
   frameworks: [
     { name: "Flutter", level: 90 },
@@ -20,8 +22,10 @@ const skillsData = {
   tools: [
     { name: "Firebase", level: 85 },
     { name: "Git", level: 90 },
-    { name: "Docker", level: 70 },
+    { name: "MySQL / MariaDB", level: 80 },
     { name: "PostgreSQL", level: 80 },
+    { name: "MongoDB", level: 70 },
+    { name: "SQLite", level: 85 },
   ],
 };
 
@@ -96,7 +100,7 @@ export function SkillsSection() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-8 flex flex-wrap justify-center gap-3"
         >
-          {["Machine Learning", "Deep Learning", "Mobile Development", "REST APIs", "Agile", "CI/CD"].map(
+          {["Machine Learning", "Deep Learning", "Mobile Development", "REST APIs", "Agile", "Process Leadership"].map(
             (skill, index) => (
               <motion.span
                 key={skill}
