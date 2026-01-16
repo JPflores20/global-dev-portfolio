@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown, X } from "lucide-react";
+import { ArrowDown, X, Download} from "lucide-react";
 import { 
   SiReact, 
   SiPython, 
