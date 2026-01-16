@@ -3,7 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, Award, Globe } from "lucide-react";
+import { Award, Globe } from "lucide-react"; // 1. Se eliminó CheckCircle2
 
 export function AboutSection() {
   const { t } = useLanguage();
@@ -28,30 +28,13 @@ export function AboutSection() {
               {t.about.description}
             </p>
 
-            <div className="grid md:grid-cols-2 gap-10">
-              {/* Highlights Originales */}
-              <div className="space-y-4">
-                <h3 className="font-semibold text-xl mb-4 flex items-center gap-2">
-                   Highlights
-                </h3>
-                <ul className="space-y-3">
-                  {t.about.highlights.map((highlight, index) => (
-                    <motion.li
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ delay: 0.3 + index * 0.1 }}
-                      className="flex items-start gap-3"
-                    >
-                      <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                      <span>{highlight}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
+            {/* 2. Se ajustó el layout para centrar el contenido restante (antes era grid-cols-2) */}
+            <div className="flex flex-col items-center">
+              
+              {/* Se eliminó el bloque de "Highlights Originales" aquí */}
 
-              {/* Nueva Columna: Certificaciones e Idiomas */}
-              <div className="space-y-8">
+              {/* Columna: Certificaciones e Idiomas */}
+              <div className="space-y-8 w-full max-w-lg">
                 
                 {/* Certificaciones */}
                 <div>
