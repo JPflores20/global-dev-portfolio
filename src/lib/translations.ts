@@ -24,6 +24,17 @@ export const translations = {
         "Full-stack developer (Django, React, SQL)",
         "Thesis researcher in AI/ML applications",
       ],
+      // SECCIÓN NUEVA
+      certificationsTitle: "Certifications",
+      certifications: [
+        "Generative AI Leader (Google)",
+        "Digital Systems Technician"
+      ],
+      languagesTitle: "Languages",
+      languages: [
+        "Spanish (Native)",
+        "English (B2 - Intermediate/Advanced)"
+      ]
     },
     experience: {
       title: "Experience",
@@ -67,6 +78,7 @@ export const translations = {
       viewDetails: "View Details",
       viewCode: "View Code",
       liveDemo: "Live Demo",
+      videoDemo: "Video Demo", // NUEVO TEXTO
       items: [
         {
           title: "Lung Cancer ML Model",
@@ -77,6 +89,7 @@ export const translations = {
           demo: null,
           playStore: null,
           appStore: null,
+          youtube: null, // NUEVO CAMPO
         },
         {
           title: "Taxaf Mobile App",
@@ -87,6 +100,7 @@ export const translations = {
           demo: null,
           playStore: "https://play.google.com/store/apps/details?id=com.taxaf.user&pcampaignid=web_share",
           appStore: "https://apps.apple.com/mx/app/taxaf/id6748660857",
+          youtube: "https://youtu.be/TKIX189a_J4", // NUEVO ENLACE
         },
         {
           title: "REDECO Complaint System",
@@ -97,6 +111,7 @@ export const translations = {
           demo: null,
           playStore: null,
           appStore: null,
+          youtube: null, // NUEVO CAMPO
         },
       ],
     },
@@ -149,6 +164,17 @@ export const translations = {
         "Desarrollador full-stack (Django, React, SQL)",
         "Investigador de tesis en aplicaciones de IA/ML",
       ],
+      // SECCIÓN NUEVA TRADUCIDA
+      certificationsTitle: "Certificaciones",
+      certifications: [
+        "Generative AI Leader (Google)",
+        "Técnico en Sistemas Digitales"
+      ],
+      languagesTitle: "Idiomas",
+      languages: [
+        "Español (Nativo)",
+        "Inglés (B2 - Intermedio/Avanzado)"
+      ]
     },
     experience: {
       title: "Experiencia",
@@ -192,6 +218,7 @@ export const translations = {
       viewDetails: "Ver Detalles",
       viewCode: "Ver Código",
       liveDemo: "Demo en Vivo",
+      videoDemo: "Video Demo", // NUEVO TEXTO
       items: [
         {
           title: "Modelo ML Cáncer de Pulmón",
@@ -202,6 +229,7 @@ export const translations = {
           demo: null,
           playStore: null,
           appStore: null,
+          youtube: null, // NUEVO CAMPO
         },
         {
           title: "App Móvil Taxaf",
@@ -212,6 +240,7 @@ export const translations = {
           demo: null,
           playStore: "https://play.google.com/store/apps/details?id=com.taxaf.user&pcampaignid=web_share",
           appStore: "https://apps.apple.com/mx/app/taxaf/id6748660857",
+          youtube: "https://youtu.be/TKIX189a_J4", // NUEVO ENLACE
         },
         {
           title: "Sistema de Quejas REDECO",
@@ -222,6 +251,7 @@ export const translations = {
           demo: null,
           playStore: null,
           appStore: null,
+          youtube: null, // NUEVO CAMPO
         },
       ],
     },
