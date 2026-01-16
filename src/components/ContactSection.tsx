@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Send, Linkedin, Github } from "lucide-react"; // Se quitó 'Phone'
+import { Mail, Send, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,13 +11,17 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
+// --- IMPORTAMOS LA CONEXIÓN A FIREBASE ---
+import { db } from "@/firebase"; 
+import { collection, addDoc } from "firebase/firestore";
+// -----------------------------------------
+
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Invalid email address").max(255),
   message: z.string().trim().min(1, "Message is required").max(1000),
 });
 
-// Componente SVG personalizado para el icono de WhatsApp
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -73,14 +77,32 @@ export function ContactSection() {
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      toast({
-        title: t.contact.form.success,
-        description: "Email functionality will be enabled soon.",
+    try {
+      // --- AQUÍ OCURRE LA MAGIA: ENVÍO REAL A FIREBASE ---
+      await addDoc(collection(db, "mensajes"), {
+        nombre: formData.name,
+        email: formData.email,
+        mensaje: formData.message,
+        fecha: new Date().toISOString() // Guardamos la fecha exacta
       });
-      setFormData({ name: "", email: "", message: "" });
+
+      toast({
+        title: "¡Mensaje Enviado!", // Mensaje de éxito real
+        description: "He recibido tu mensaje correctamente.",
+      });
+      
+      setFormData({ name: "", email: "", message: "" }); // Limpiamos el formulario
+
+    } catch (error) {
+      console.error("Error enviando a Firebase:", error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Hubo un problema al enviar el mensaje. Intenta contactarme por WhatsApp.",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -187,7 +209,7 @@ export function ContactSection() {
             {/* WhatsApp */}
             <div className="glass-card p-6 flex items-center gap-4 hover:scale-105 transition-transform">
               <div className="p-4 rounded-xl gradient-bg text-white">
-                <WhatsAppIcon className="h-6 w-6" /> {/* Icono actualizado */}
+                <WhatsAppIcon className="h-6 w-6" />
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">{t.contact.info.phone}</p>
