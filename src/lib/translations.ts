@@ -89,7 +89,7 @@ export const translations = {
       title: "Projects",
       viewDetails: "View Details",
       viewCode: "View Code",
-      liveDemo: "Live Demo",
+      liveDemo: "Website",
       videoDemo: "Video Demo",
       items: [
         {
@@ -121,6 +121,17 @@ export const translations = {
           tech: ["Django", "React", "PostgreSQL", "Git"],
           github: "https://github.com/JPflores20/api_redeco_reune",
           demo: null,
+          playStore: null,
+          appStore: null,
+          youtube: null,
+        },
+        {
+          title: "Golden English Zac Landing",
+          shortDesc: "Official landing page for English School",
+          fullDesc: "A modern, responsive landing page for Golden English, the #1 English school in Zacatecas. Features scroll animations, dynamic counters for stats, and contact forms. Hosted on Firebase.",
+          tech: ["React", "TypeScript", "Tailwind CSS", "Firebase"],
+          github: "https://github.com/JPflores20/golden-english-zac-landing",
+          demo: "https://goldenenglishzac.web.app/",
           playStore: null,
           appStore: null,
           youtube: null,
@@ -241,7 +252,7 @@ export const translations = {
       title: "Proyectos",
       viewDetails: "Ver Detalles",
       viewCode: "Ver Código",
-      liveDemo: "Demo en Vivo",
+      liveDemo: "Website",
       videoDemo: "Video Demo",
       items: [
         {
@@ -273,6 +284,17 @@ export const translations = {
           tech: ["Django", "React", "PostgreSQL", "Git"],
           github: "https://github.com/JPflores20/api_redeco_reune",
           demo: null,
+          playStore: null,
+          appStore: null,
+          youtube: null,
+        },
+        {
+          title: "Web Golden English Zac",
+          shortDesc: "Sitio web oficial para escuela de inglés",
+          fullDesc: "Landing page moderna para Golden English Zacatecas. Incluye animaciones al hacer scroll, contadores dinámicos de estadísticas y formularios de contacto. Desarrollada con React, TypeScript y Tailwind CSS.",
+          tech: ["React", "TypeScript", "Tailwind CSS", "Firebase"],
+          github: "https://github.com/JPflores20/golden-english-zac-landing",
+          demo: "https://goldenenglishzac.web.app/",
           playStore: null,
           appStore: null,
           youtube: null,

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, ChevronRight, Youtube } from "lucide-react"; // 1. Importamos Youtube
+import { ExternalLink, Github, ChevronRight, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -35,6 +35,7 @@ export function ProjectsSection() {
     "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop",
     "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&h=500&fit=crop",
     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=500&fit=crop", // Nueva imagen para Golden English
   ];
 
   return (
@@ -120,7 +121,6 @@ export function ProjectsSection() {
                         </Button>
                       )}
 
-                      {/* 2. Botón de YouTube agregado en la Tarjeta */}
                       {project.youtube && (
                         <Button variant="ghost" size="icon" asChild>
                           <a href={project.youtube} target="_blank" rel="noopener noreferrer">
@@ -215,7 +215,6 @@ export function ProjectsSection() {
                           </Button>
                         )}
 
-                        {/* 3. Botón de YouTube agregado en el Modal */}
                         {t.projects.items[selectedProject].youtube && (
                           <Button 
                             variant="outline" 
