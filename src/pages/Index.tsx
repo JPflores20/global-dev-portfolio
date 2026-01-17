@@ -1,24 +1,24 @@
-import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
+import { TechStackSection } from "@/components/TechStackSection"; // <--- Importar
 import { ExperienceSection } from "@/components/ExperienceSection";
-import { SkillsSection } from "@/components/SkillsSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <TechStackSection /> {/* <--- Usar aquí */}
       <ExperienceSection />
-      <SkillsSection />
       <ProjectsSection />
       <ContactSection />
       <Footer />
-    </main>
+    </div>
   );
 };
 

@@ -52,12 +52,6 @@ export const translations = {
       title: "Experience",
       positions: [
         {
-          role: "Frontend Web Developer",
-          company: "Golden English Zacatecas",
-          period: "Jan 2026 - Present",
-          description: "Designed and developed the official landing page to increase digital presence. Implemented modern animations, responsive design with React & Tailwind CSS, and integrated contact forms.",
-        },
-        {
           role: "Project Lead & Software Developer",
           company: "REDECO",
           period: "Jul 2025 - Dec 2025",
@@ -90,6 +84,21 @@ export const translations = {
         frameworks: "Frameworks",
         tools: "Tools & Technologies",
       },
+    },
+    // --- NUEVA SECCIÓN TECH STACK ---
+    techStack: {
+      title: "Tech Stack",
+      description: "A curated list of the technologies and tools I use to build digital products.",
+      categories: {
+        All: "All",
+        Frontend: "Frontend",
+        Backend: "Backend",
+        Mobile: "Mobile",
+        Database: "Databases",
+        DevOps: "DevOps",
+        AI: "AI Assisted",
+        Tools: "Design & Tools"
+      }
     },
     projects: {
       title: "Projects",
@@ -221,12 +230,6 @@ export const translations = {
       title: "Experiencia",
       positions: [
         {
-          role: "Desarrollador Web Frontend",
-          company: "Golden English Zacatecas",
-          period: "Ene 2026 - Presente",
-          description: "Diseño y desarrollo de la landing page oficial para incrementar la presencia digital. Implementación de animaciones modernas, diseño responsivo con React y Tailwind CSS, e integración de formularios.",
-        },
-        {
           role: "Líder de Proyecto y Desarrollador",
           company: "REDECO",
           period: "Jul 2025 - Dic 2025",
@@ -259,6 +262,21 @@ export const translations = {
         frameworks: "Frameworks",
         tools: "Herramientas y Tecnologías",
       },
+    },
+    // --- NUEVA SECCIÓN TECH STACK (ESPAÑOL) ---
+    techStack: {
+      title: "Stack Tecnológico",
+      description: "Una lista seleccionada de tecnologías y herramientas que utilizo para crear productos digitales.",
+      categories: {
+        All: "Todos",
+        Frontend: "Frontend",
+        Backend: "Backend",
+        Mobile: "Móvil",
+        Database: "Bases de Datos",
+        DevOps: "DevOps",
+        AI: "IA Asistida",
+        Tools: "Diseño y Herramientas"
+      }
     },
     projects: {
       title: "Proyectos",
