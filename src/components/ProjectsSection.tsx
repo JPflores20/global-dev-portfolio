@@ -1,8 +1,6 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { ExternalLink, Github, ChevronRight, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -31,11 +29,12 @@ export function ProjectsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
+  // Array de imágenes actualizado
   const projectImages = [
     "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop",
     "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&h=500&fit=crop",
     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=500&fit=crop", // Nueva imagen para Golden English
+    "/LogoGolden.jpg", // CORREGIDO: extensión .jpg y ruta absoluta desde public
   ];
 
   return (
