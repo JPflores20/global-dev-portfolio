@@ -85,7 +85,6 @@ export const translations = {
         tools: "Tools & Technologies",
       },
     },
-    // --- NUEVA SECCIÓN TECH STACK ---
     techStack: {
       title: "Tech Stack",
       description: "A curated list of the technologies and tools I use to build digital products.",
@@ -98,6 +97,33 @@ export const translations = {
         DevOps: "DevOps",
         AI: "AI Assisted",
         Tools: "Design & Tools"
+      },
+      // --- NUEVAS DESCRIPCIONES ---
+      techDescriptions: {
+        "React": "A JavaScript library for building user interfaces.",
+        "TypeScript": "JavaScript with syntax for types.",
+        "Tailwind CSS": "A utility-first CSS framework for rapid UI development.",
+        "JavaScript": "The programming language of the Web.",
+        "HTML5": "The standard markup language for documents designed to be displayed in a web browser.",
+        "Python": "A programming language that lets you work quickly and integrate systems more effectively.",
+        "Django": "A high-level Python web framework that encourages rapid development.",
+        "Java": "A high-level, class-based, object-oriented programming language.",
+        "Node.js": "JavaScript runtime built on Chrome's V8 JavaScript engine.",
+        "Flutter": "Google's UI toolkit for building natively compiled applications from a single codebase.",
+        "Dart": "A client-optimized language for fast apps on any platform.",
+        "PostgreSQL": "A powerful, open source object-relational database system.",
+        "MySQL": "The world's most popular open source database.",
+        "Firebase": "Google's mobile platform that helps you quickly develop high-quality apps.",
+        "MongoDB": "The most popular database for modern apps.",
+        "Machine Learning": "The study of computer algorithms that improve automatically through experience.",
+        "TensorFlow": "An end-to-end open source platform for machine learning.",
+        "Pandas": "A fast, powerful, flexible and easy to use open source data analysis and manipulation tool.",
+        "Git": "A free and open source distributed version control system.",
+        "Docker": "A platform for developing, shipping, and running applications.",
+        "Linux": "A family of open-source Unix-like operating systems.",
+        "Figma": "The collaborative interface design tool.",
+        "Postman": "An API platform for building and using APIs.",
+        "VS Code": "Code editing. Redefined."
       }
     },
     projects: {
@@ -263,7 +289,6 @@ export const translations = {
         tools: "Herramientas y Tecnologías",
       },
     },
-    // --- NUEVA SECCIÓN TECH STACK (ESPAÑOL) ---
     techStack: {
       title: "Stack Tecnológico",
       description: "Una lista seleccionada de tecnologías y herramientas que utilizo para crear productos digitales.",
@@ -276,6 +301,33 @@ export const translations = {
         DevOps: "DevOps",
         AI: "IA Asistida",
         Tools: "Diseño y Herramientas"
+      },
+      // --- NUEVAS DESCRIPCIONES (ESPAÑOL) ---
+      techDescriptions: {
+        "React": "Una biblioteca de JavaScript para construir interfaces de usuario.",
+        "TypeScript": "JavaScript con sintaxis para tipos.",
+        "Tailwind CSS": "Un framework de CSS de utilidad primero para el desarrollo rápido de UI.",
+        "JavaScript": "El lenguaje de programación de la Web.",
+        "HTML5": "El lenguaje de marcado estándar para documentos diseñados para ser mostrados en un navegador web.",
+        "Python": "Un lenguaje de programación que te permite trabajar rápidamente e integrar sistemas de manera más efectiva.",
+        "Django": "Un framework web de Python de alto nivel que fomenta el desarrollo rápido.",
+        "Java": "Un lenguaje de programación orientado a objetos, basado en clases y de alto nivel.",
+        "Node.js": "Entorno de ejecución de JavaScript construido sobre el motor de JavaScript V8 de Chrome.",
+        "Flutter": "El kit de herramientas de interfaz de usuario de Google para crear aplicaciones compiladas de forma nativa.",
+        "Dart": "Un lenguaje optimizado para clientes para aplicaciones rápidas en cualquier plataforma.",
+        "PostgreSQL": "Un potente sistema de base de datos relacional de objetos de código abierto.",
+        "MySQL": "La base de datos de código abierto más popular del mundo.",
+        "Firebase": "La plataforma móvil de Google que te ayuda a desarrollar rápidamente aplicaciones de alta calidad.",
+        "MongoDB": "La base de datos más popular para aplicaciones modernas.",
+        "Machine Learning": "El estudio de algoritmos informáticos que mejoran automáticamente a través de la experiencia.",
+        "TensorFlow": "Una plataforma de código abierto de extremo a extremo para el aprendizaje automático.",
+        "Pandas": "Una herramienta de análisis y manipulación de datos de código abierto rápida, potente, flexible y fácil de usar.",
+        "Git": "Un sistema de control de versiones distribuido gratuito y de código abierto.",
+        "Docker": "Una plataforma para desarrollar, enviar y ejecutar aplicaciones.",
+        "Linux": "Una familia de sistemas operativos tipo Unix de código abierto.",
+        "Figma": "La herramienta de diseño de interfaz colaborativa.",
+        "Postman": "Una plataforma API para construir y usar API.",
+        "VS Code": "Edición de código. Redefinida."
       }
     },
     projects: {

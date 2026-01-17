@@ -10,7 +10,8 @@ import {
   Smartphone, 
   Terminal, 
   Wand2, 
-  Cpu
+  Cpu,
+  X // Icono para cerrar
 } from "lucide-react";
 
 // --- ICONOS ---
@@ -26,10 +27,8 @@ import {
   SiTensorflow, SiPytorch, SiOpenai, SiPandas, SiScikitlearn 
 } from "react-icons/si";
 
-// Tipos para las claves de categorías (según translations.ts)
 type CategoryKey = "All" | "Frontend" | "Backend" | "Mobile" | "Database" | "DevOps" | "AI" | "Tools";
 
-// Estructura de categorías estática (solo ID e ícono)
 const CATEGORIES_CONFIG: { id: CategoryKey; icon: any }[] = [
   { id: "All", icon: Globe },
   { id: "Frontend", icon: Layout },
@@ -44,9 +43,10 @@ const CATEGORIES_CONFIG: { id: CategoryKey; icon: any }[] = [
 export function TechStackSection() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("All");
+  
+  // Estado para la tarjeta seleccionada (para la animación de flip)
+  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
-  // Lista de Habilidades (Skills)
-  // Nota: Las categorías aquí (category: "Frontend") deben coincidir con los IDs de CategoryKey
   const skills = [
     // --- FRONTEND ---
     { name: "React", category: "Frontend", icon: SiReact, color: "text-cyan-400" },
@@ -87,21 +87,22 @@ export function TechStackSection() {
     { name: "VS Code", category: "Tools", icon: VscVscode, color: "text-blue-400" },
   ];
 
-  // Filtrado
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "All" || skill.category === activeCategory
   );
 
+  // Encontrar el objeto skill completo del seleccionado
+  const activeSkillObject = skills.find(s => s.name === selectedSkill);
+
   return (
     <section id="tech-stack" className="py-24 bg-background relative overflow-hidden">
       
-      {/* Background Decorations */}
       <div className="absolute top-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header con Textos Traducidos */}
+        {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">{t.techStack.title}</span>
@@ -132,7 +133,6 @@ export function TechStackSection() {
               )}
               <span className="relative z-10 flex items-center gap-2">
                 <category.icon className="w-4 h-4" />
-                {/* Aquí obtenemos la etiqueta traducida usando el ID */}
                 {t.techStack.categories[category.id]}
               </span>
             </button>
@@ -148,12 +148,12 @@ export function TechStackSection() {
             {filteredSkills.map((skill) => (
               <motion.div
                 key={skill.name}
-                layout
+                layoutId={`card-${skill.name}`} // ID para animación compartida
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
-                transition={{ duration: 0.3 }}
-                className="group relative bg-secondary/30 border border-border/50 rounded-xl p-4 flex flex-col items-center justify-center gap-3 hover:border-primary/50 transition-colors cursor-default"
+                onClick={() => setSelectedSkill(skill.name)} // Activar modal
+                className="group relative bg-secondary/30 border border-border/50 rounded-xl p-4 flex flex-col items-center justify-center gap-3 hover:border-primary/50 transition-colors cursor-pointer"
               >
                 <div className={`p-3 rounded-lg bg-background/50 shadow-sm group-hover:shadow-[0_0_15px_currentColor] transition-all duration-300 ${skill.color}`}>
                   <skill.icon className="w-8 h-8" />
@@ -168,6 +168,79 @@ export function TechStackSection() {
         </motion.div>
 
       </div>
+
+      {/* --- OVERLAY DE TARJETA 3D --- */}
+      <AnimatePresence>
+        {selectedSkill && activeSkillObject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+             {/* Fondo oscuro (Backdrop) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedSkill(null)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            />
+
+            {/* Tarjeta Flotante con efecto Flip */}
+            <div className="perspective-1000 w-full max-w-sm h-80 cursor-pointer" onClick={() => setSelectedSkill(null)}>
+              <motion.div
+                layoutId={`card-${selectedSkill}`} // Conecta con el grid
+                className="w-full h-full relative preserve-3d"
+                initial={{ rotateY: 0 }}
+                animate={{ rotateY: 180 }} // Gira 180 grados al aparecer
+                exit={{ rotateY: 0, opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
+              >
+                
+                {/* --- CARA FRONTAL (Visible inicialmente, luego se oculta al girar) --- */}
+                <div 
+                  className="absolute inset-0 backface-hidden bg-background border border-primary/20 rounded-2xl flex flex-col items-center justify-center shadow-2xl"
+                  style={{ transform: "rotateY(0deg)" }} 
+                >
+                  {/* Este contenido es el mismo que en el grid */}
+                  <div className={`p-6 rounded-full bg-secondary/50 mb-4 ${activeSkillObject.color}`}>
+                    <activeSkillObject.icon className="w-16 h-16" />
+                  </div>
+                  <h3 className="text-2xl font-bold">{activeSkillObject.name}</h3>
+                </div>
+
+                {/* --- CARA TRASERA (Visible después del giro) --- */}
+                <div 
+                  className="absolute inset-0 backface-hidden bg-background/95 border border-primary/50 rounded-2xl flex flex-col items-center justify-center p-8 text-center shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+                  style={{ transform: "rotateY(180deg)" }} // Ya está girada para que al rotar el padre se vea bien
+                >
+                   {/* Botón Cerrar */}
+                   <button 
+                     onClick={(e) => { e.stopPropagation(); setSelectedSkill(null); }}
+                     className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
+                   >
+                     <X className="w-6 h-6" />
+                   </button>
+
+                   <div className={`mb-4 ${activeSkillObject.color}`}>
+                     <activeSkillObject.icon className="w-12 h-12" />
+                   </div>
+                   
+                   <h3 className="text-xl font-bold mb-3">{activeSkillObject.name}</h3>
+                   <p className="text-muted-foreground leading-relaxed">
+                     {/* Obtenemos la descripción de las traducciones */}
+                     {(t.techStack.techDescriptions as any)[activeSkillObject.name] || "A powerful tool in my development stack."}
+                   </p>
+                </div>
+
+              </motion.div>
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Estilos globales para 3D (puedes poner esto en index.css si prefieres) */}
+      <style>{`
+        .perspective-1000 { perspective: 1000px; }
+        .preserve-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+      `}</style>
     </section>
   );
 }
