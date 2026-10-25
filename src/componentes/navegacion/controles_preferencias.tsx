@@ -9,8 +9,8 @@ import { use_idioma } from "@/contextos/contexto_idioma";
 import { use_tema } from "@/contextos/contexto_tema";
 import { Button } from "@/componentes/ui/boton";
 
-const RUTA_ARCHIVO_CV_PDF = "/CV_JoséLuisFloresCarrillo_V9.pdf";
-const NOMBRE_DESCARGA_CV_PDF = "CV_JoséLuisFloresCarrillo.pdf";
+const RUTA_ARCHIVO_CV_PDF = "/CV_José Luis Flores Carrillo_2026.pdf";
+const NOMBRE_DESCARGA_CV_PDF = "CV_José Luis Flores Carrillo_2026.pdf";
 
 /**
  * Selector tipo píldora para alternar entre los idiomas Español (ES) e Inglés (EN).
