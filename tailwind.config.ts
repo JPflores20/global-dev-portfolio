@@ -1,12 +1,18 @@
-import type { Config } from "tailwindcss";
+/**
+ * @file tailwind.config.ts
+ * @description Configuración de Tailwind CSS con variables de color HSL, animaciones orbitales y plugins.
+ */
 
-const config = {
+import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
+
+const configuracion_tailwind = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -67,17 +73,14 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        // Mueve el ícono a lo largo de la línea
         orbit: {
           "0%": { offsetDistance: "0%" },
           "100%": { offsetDistance: "100%" },
         },
-        // Gira la elipse completa (sentido horario)
         "spin-orbit": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
-        // Gira en contra (sentido anti-horario)
         "spin-counter": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(-360deg)" },
@@ -86,20 +89,17 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        // Velocidades de movimiento (travel)
         "orbit-slow": "orbit 14s linear infinite",
         "orbit-medium": "orbit 10s linear infinite",
         "orbit-fast": "orbit 8s linear infinite",
-        
-        // Velocidades de rotación del eje (spin)
-        "spin-slow": "spin-orbit 20s linear infinite",       // 20s horario
-        "spin-slower": "spin-orbit 30s linear infinite",     // 30s horario
-        "spin-reverse-slow": "spin-counter 20s linear infinite",   // 20s anti-horario
-        "spin-reverse-slower": "spin-counter 30s linear infinite", // 30s anti-horario
+        "spin-slow": "spin-orbit 20s linear infinite",
+        "spin-slower": "spin-orbit 30s linear infinite",
+        "spin-reverse-slow": "spin-counter 20s linear infinite",
+        "spin-reverse-slower": "spin-counter 30s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
 
-export default config;
+export default configuracion_tailwind;

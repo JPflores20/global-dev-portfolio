@@ -1,5 +1,13 @@
+/**
+ * @file main.tsx
+ * @description Punto de entrada principal que monta la aplicación React en el nodo raíz del DOM.
+ */
+
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
+import AplicacionPrincipal from "./app.tsx";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+const elemento_raiz_dom = document.getElementById("root");
+if (elemento_raiz_dom) {
+  createRoot(elemento_raiz_dom).render(<AplicacionPrincipal />);
+}
