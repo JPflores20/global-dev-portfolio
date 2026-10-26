@@ -54,10 +54,11 @@ export const CATALOGO_HABILIDADES_POR_CATEGORIA: CatalogoHabilidadesPorCategoria
  * Lista de competencias transversales y áreas de especialización mostradas como píldoras.
  */
 export const ETIQUETAS_COMPETENCIAS_CLAVE: string[] = [
+  "SPC & Six Sigma (Cp, Cpk)",
+  "VPO (PDCA & RDA)",
+  "TPM & Matriz SKAP",
+  "SAP GUI Scripting & VBA",
   "Machine Learning",
-  "Deep Learning",
   "Mobile Development",
-  "REST APIs",
-  "Agile",
   "Process Leadership",
 ];

@@ -38,6 +38,8 @@ import {
   SiLinux,
   SiFigma,
   SiPostman,
+  SiGrafana,
+  SiSap,
   SiTensorflow,
   SiPandas,
   SiGooglegemini,
@@ -106,6 +108,8 @@ export const CATALOGO_TECNOLOGIAS_STACK: ElementoStackTecnologico[] = [
   { nombre_tecnologia: "Docker", categoria_tecnologia: "DevOps", componente_icono: SiDocker, clase_color_icono: "text-blue-500" },
   { nombre_tecnologia: "Linux", categoria_tecnologia: "DevOps", componente_icono: SiLinux, clase_color_icono: "text-yellow-200" },
   { nombre_tecnologia: "Figma", categoria_tecnologia: "Tools", componente_icono: SiFigma, clase_color_icono: "text-purple-400" },
+  { nombre_tecnologia: "Grafana", categoria_tecnologia: "Tools", componente_icono: SiGrafana, clase_color_icono: "text-orange-400" },
+  { nombre_tecnologia: "SAP Scripting", categoria_tecnologia: "Tools", componente_icono: SiSap, clase_color_icono: "text-sky-400" },
   { nombre_tecnologia: "Postman", categoria_tecnologia: "Tools", componente_icono: SiPostman, clase_color_icono: "text-orange-500" },
   { nombre_tecnologia: "VS Code", categoria_tecnologia: "Tools", componente_icono: VscVscode, clase_color_icono: "text-blue-400" },
 ];

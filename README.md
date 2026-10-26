@@ -36,14 +36,16 @@ global-dev-portfolio/
 │   ├── traducciones/
 │   │   ├── tipos_traducciones.ts                 # Tipos e interfaces del contrato de internacionalización
 │   │   ├── traducciones_en.ts                    # Textos del portafolio en inglés
-│   │   ├── experiencia_en.ts                     # Historial de experiencia y proyectos de Grupo Modelo en inglés
-│   │   ├── proyectos_en.ts                       # Catálogo consolidado de proyectos en inglés (13 proyectos)
-│   │   ├── proyectos_industriales_en.ts          # Catálogo de los 9 sistemas de Grupo Modelo en inglés
+│   │   ├── experiencia_en.ts                     # Historial de 6 cargos profesionales en inglés
+│   │   ├── sistemas_grupo_modelo_en.ts           # Catálogo de los 16 sistemas/suites en Grupo Modelo (EN)
+│   │   ├── proyectos_en.ts                       # Catálogo consolidado de proyectos en inglés (12 proyectos)
+│   │   ├── proyectos_industriales_en.ts          # Catálogo de los 8 sistemas de Grupo Modelo con demo/repo (EN)
 │   │   ├── descripciones_tecnologias_en.ts       # Descripciones técnicas del stack en inglés
 │   │   ├── traducciones_es.ts                    # Textos del portafolio en español
-│   │   ├── experiencia_es.ts                     # Historial de experiencia y proyectos de Grupo Modelo en español
-│   │   ├── proyectos_es.ts                       # Catálogo consolidado de proyectos en español (13 proyectos)
-│   │   ├── proyectos_industriales_es.ts          # Catálogo de los 9 sistemas de Grupo Modelo en español
+│   │   ├── experiencia_es.ts                     # Historial de 6 cargos profesionales en español
+│   │   ├── sistemas_grupo_modelo_es.ts           # Catálogo de los 16 sistemas/suites en Grupo Modelo (ES)
+│   │   ├── proyectos_es.ts                       # Catálogo consolidado de proyectos en español (12 proyectos)
+│   │   ├── proyectos_industriales_es.ts          # Catálogo de los 8 sistemas de Grupo Modelo con demo/repo (ES)
 │   │   ├── descripciones_tecnologias_es.ts       # Descripciones técnicas del stack en español
 │   │   └── indice_traducciones.ts                # Punto de acceso centralizado al catálogo bilingüe
 │   ├── servicios/

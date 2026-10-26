@@ -48,16 +48,22 @@ describe("Pruebas de arquitectura modular del portafolio", () => {
   it("debe disponer de los diccionarios de idioma en inglés y español completos", () => {
     expect(catalogo_traducciones.en.hero.name).toBe("José Luis Flores Carrillo");
     expect(catalogo_traducciones.es.hero.name).toBe("José Luis Flores Carrillo");
-    expect(catalogo_traducciones.en.projects.lista_proyectos.length).toBe(13);
-    expect(catalogo_traducciones.es.projects.lista_proyectos.length).toBe(13);
-    expect(catalogo_traducciones.en.experience.positions.length).toBe(5);
-    expect(catalogo_traducciones.es.experience.positions.length).toBe(5);
+    expect(catalogo_traducciones.en.projects.lista_proyectos.length).toBe(12);
+    expect(catalogo_traducciones.es.projects.lista_proyectos.length).toBe(12);
+    expect(catalogo_traducciones.en.experience.positions.length).toBe(6);
+    expect(catalogo_traducciones.es.experience.positions.length).toBe(6);
     expect(
       catalogo_traducciones.en.experience.positions[0].proyectos_destacados?.length,
-    ).toBe(9);
+    ).toBe(14);
     expect(
       catalogo_traducciones.es.experience.positions[0].proyectos_destacados?.length,
-    ).toBe(9);
+    ).toBe(14);
+    expect(
+      catalogo_traducciones.en.experience.positions[1].proyectos_destacados?.length,
+    ).toBe(2);
+    expect(
+      catalogo_traducciones.es.experience.positions[1].proyectos_destacados?.length,
+    ).toBe(2);
   });
 
   it("debe fusionar clases de Tailwind CSS sin conflictos", () => {

@@ -12,11 +12,11 @@ import { ModalDetalleProyecto } from "@/componentes/proyectos/modal_detalle_proy
 
 type FiltroCategoriaProyecto = "todos" | "grupo_modelo" | "otros_proyectos";
 
-const CANTIDAD_PROYECTOS_GRUPO_MODELO = 9;
+const CANTIDAD_PROYECTOS_GRUPO_MODELO = 8;
 const LIMITE_INICIAL_VISTA_TODOS = 6;
 
 /**
- * Arreglo ordenado de rutas de imágenes representativas para los 13 proyectos del portafolio.
+ * Arreglo ordenado de rutas de imágenes representativas para los 12 proyectos del portafolio.
  */
 const IMAGENES_PORTADA_PROYECTOS: string[] = [
   "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop", // 0: Brew Insights AI
@@ -24,14 +24,13 @@ const IMAGENES_PORTADA_PROYECTOS: string[] = [
   "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&h=500&fit=crop", // 2: PML Clean Pro
   "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=500&fit=crop", // 3: Levadura CCZ
   "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=500&fit=crop", // 4: PRP One View Safety Map
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop", // 5: Farol de KPIs
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop", // 6: MAZ HUB
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop", // 7: Dashboard de Autonomía
-  "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&h=500&fit=crop", // 8: Agenda de Cocimientos
-  "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&h=500&fit=crop", // 9: App Móvil Taxaf
-  "/LogoGolden.jpg", // 10: Web Golden English Zac
-  "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop", // 11: Sistema REDECO
-  "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop", // 12: Modelo ML Cáncer de Pulmón
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop", // 5: MAZ HUB
+  "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop", // 6: Dashboard de Autonomía
+  "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&h=500&fit=crop", // 7: Agenda de Cocimientos
+  "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&h=500&fit=crop", // 8: App Móvil Taxaf
+  "/LogoGolden.jpg", // 9: Web Golden English Zac
+  "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop", // 10: Sistema REDECO
+  "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop", // 11: Modelo ML Cáncer de Pulmón
 ];
 
 /**

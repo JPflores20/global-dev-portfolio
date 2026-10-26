@@ -23,26 +23,27 @@ export const traducciones_en: EstructuraTraducciones = {
   hero: {
     greeting: "Hello, I'm",
     name: "José Luis Flores Carrillo",
-    role: "Software Engineer",
-    tagline: "Specializing in Machine Learning, Mobile Development & Full-Stack Solutions",
+    role: "Software Engineer & Data Analyst",
+    tagline:
+      "Specializing in Industrial Analytics, SAP Automation, Mobile/Web Development & Machine Learning",
     cta: "Get in Touch",
   },
   about: {
     title: "About Me",
     description:
-      "I'm a Software Engineer and Digital Systems Technician with 3+ years of experience building industrial web platforms, AI-powered solutions, and mobile applications. I have designed and deployed 9 production systems at Grupo Modelo (AB InBev), combining clean architecture, real-time data analytics, and high-impact user interfaces.",
+      "Software Engineer and Digital Systems Technician with 3+ years of experience in mobile/web development, industrial analytics, and operational automation. Currently a Data Analyst at Grupo Modelo (Zacatecas Brewery), building real-time platforms for Statistical Process Control (SPC / Six Sigma), VPO/TPM methodologies, Siemens Braumat/SAP integration, and Generative AI (Google Gemini).",
     highlights: [
-      "Software Engineer at Grupo Modelo (AB InBev)",
+      "Data Analyst & Software Engineer at Grupo Modelo (AB InBev)",
       "Generative AI Leader Certified (Google)",
-      "Full-Stack & Mobile Specialist (React, TypeScript, Flutter, Django)",
-      "Generative AI Integration (Gemini, OpenAI) & industrial analytics",
+      "Industrial Automation (SAP GUI Scripting, VBA, Siemens Braumat, SPC)",
+      "Full-Stack & Mobile Specialist (React, TypeScript, Flutter, Python, SQL)",
     ],
     education_title: "Education",
     education: [
       {
         degree: "Software Engineering",
         school: "Universidad Autónoma de Zacatecas",
-        period: "2021 - 2025",
+        period: "2021 - 2026",
       },
       {
         degree: "Digital Systems Technician",

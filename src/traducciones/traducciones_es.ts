@@ -23,26 +23,27 @@ export const traducciones_es: EstructuraTraducciones = {
   hero: {
     greeting: "Hola, soy",
     name: "José Luis Flores Carrillo",
-    role: "Ingeniero de Software",
-    tagline: "Especializado en Machine Learning, Desarrollo Móvil y Soluciones Web",
+    role: "Ingeniero de Software & Analista de Datos",
+    tagline:
+      "Especializado en Analítica Industrial, Automatización SAP, Desarrollo Móvil/Web y Machine Learning",
     cta: "Contáctame",
   },
   about: {
     title: "Sobre Mí",
     description:
-      "Soy Ingeniero de Software y Técnico en Sistemas Digitales con más de 3 años de experiencia desarrollando plataformas web industriales, soluciones con Inteligencia Artificial y aplicaciones móviles. He diseñado e implementado 9 sistemas en producción para Grupo Modelo (AB InBev), combinando arquitectura limpia, análisis de datos en tiempo real e interfaces de alto impacto.",
+      "Ingeniero de Software y Técnico en Sistemas Digitales con más de 3 años de experiencia en desarrollo móvil/web, analítica industrial y automatización operativa. Actualmente Analista de Datos en Grupo Modelo (Cervecería de Zacatecas), donde diseño plataformas en tiempo real para Control Estadístico de Procesos (SPC / Seis Sigma), metodologías VPO/TPM, integración con Siemens Braumat/SAP e Inteligencia Artificial (Google Gemini).",
     highlights: [
-      "Ingeniero de Software en Grupo Modelo (AB InBev)",
+      "Analista de Datos & Ing. de Software en Grupo Modelo (AB InBev)",
       "Certificación Generative AI Leader (Google)",
-      "Especialista Full-Stack & Móvil (React, TypeScript, Flutter, Django)",
-      "Integración de IA Generativa (Gemini, OpenAI) y analítica industrial",
+      "Automatización Industrial (SAP GUI Scripting, VBA, Siemens Braumat, SPC)",
+      "Especialista Full-Stack & Móvil (React, TypeScript, Flutter, Python, SQL)",
     ],
     education_title: "Formación Académica",
     education: [
       {
         degree: "Ingeniería de Software",
         school: "Universidad Autónoma de Zacatecas",
-        period: "2021 - 2025",
+        period: "2021 - 2026",
       },
       {
         degree: "Técnico en Sistemas Digitales",

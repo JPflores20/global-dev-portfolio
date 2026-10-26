@@ -32,6 +32,8 @@ export const descripciones_tecnologias_es: Record<string, string> = {
   "Docker": "Una plataforma para desarrollar, enviar y ejecutar aplicaciones.",
   "Linux": "Una familia de sistemas operativos tipo Unix de código abierto.",
   "Figma": "La herramienta de diseño de interfaz colaborativa.",
+  "Grafana": "Plataforma abierta de observabilidad, monitoreo industrial y visualización de métricas en tiempo real.",
+  "SAP Scripting": "Automatización de transacciones operativas e inventarios en SAP mediante SAP GUI Scripting y macros VBA.",
   "Postman": "Una plataforma API para construir y usar API.",
   "VS Code": "Edición de código. Redefinida.",
 };

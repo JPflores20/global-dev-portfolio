@@ -1,6 +1,6 @@
 /**
  * @file proyectos_industriales_en.ts
- * @description English catalog of the 9 industrial systems developed for Grupo Modelo (AB InBev • Zacatecas Brewery).
+ * @description English catalog of the 8 industrial systems with repository and live demo built for Grupo Modelo (AB InBev).
  */
 
 import type { ProyectoPortafolio } from "@/traducciones/tipos_traducciones";
@@ -10,11 +10,11 @@ import type { ProyectoPortafolio } from "@/traducciones/tipos_traducciones";
  */
 export const proyectos_industriales_en: ProyectoPortafolio[] = [
   {
-    title: "Brew Insights — AI Brewing Analytics",
-    short_desc: "Brewing intelligence platform & Google Gemini AI assistant",
+    title: "Brew Insights — Industrial Analytics & Cycle Times",
+    short_desc: "Hot Block audit (.DBF Siemens Braumat), SPC & Gemini AI assistant",
     full_desc:
-      "Brewing data analytics platform built for Zacatecas Brewery (Grupo Modelo) featuring Google Gemini AI integration. Monitors brewhouse and fermentation batches, detects physicochemical anomalies, and provides a real-time intelligent assistant.",
-    tech: ["React 19", "TypeScript", "Google Gemini AI", "Tailwind CSS", "Recharts"],
+      "Platform that ingests Siemens Braumat .DBF and Excel files to audit the Hot Block at Zacatecas Brewery. Features interactive recipe cycle-time Gantt charts, equipment bottleneck monitoring, statistical process control (Cp, Cpk) for wort/last water, and a Google Gemini AI assistant for root-cause detection in atypical batches.",
+    tech: ["React", "TypeScript", "Gemini AI", "Siemens Braumat (.DBF)", "SPC (Cp, Cpk)"],
     github: "https://github.com/JPflores20/brew-insights",
     demo: "https://brew-insights.web.app/",
     play_store: null,
@@ -22,11 +22,11 @@ export const proyectos_industriales_en: ProyectoPortafolio[] = [
     youtube: null,
   },
   {
-    title: "Brewing Management — Digital VPO (Brew Board)",
-    short_desc: "Digital VPO board with voice recognition & OpenAI copilot",
+    title: "Brew Board — Cross-Platform Brewing Management",
+    short_desc: "Web & Android App (Capacitor + TanStack Start) with AI copilot",
     full_desc:
-      "Comprehensive Voyager Plant Optimization (VPO) management platform featuring voice commands (Web Speech API), an OpenAI-powered operational copilot, and real-time Supabase cloud synchronization.",
-    tech: ["React", "TypeScript", "OpenAI API", "Web Speech API", "Supabase"],
+      "Cross-platform application (Web and Android mobile via Capacitor with TanStack Start and Firebase) for comprehensive plant brewing management, featuring a voice-enabled AI operational copilot (OpenAI / Web Speech API).",
+    tech: ["React", "TypeScript", "Capacitor Android", "TanStack Start", "Firebase"],
     github: "https://github.com/JPflores20/brew-board",
     demo: "https://brew-f4449.web.app/",
     play_store: null,
@@ -34,10 +34,10 @@ export const proyectos_industriales_en: ProyectoPortafolio[] = [
     youtube: null,
   },
   {
-    title: "PML Clean Pro — Brewhouse Sanitation Hub",
-    short_desc: "Real-time master cleaning schedules & sanitation compliance",
+    title: "PML Clean Pro — Master Cleaning Schedule",
+    short_desc: "Real-time PML tracking for Cold Block & Brewhouse",
     full_desc:
-      "Real-time full-stack platform powered by Supabase (PostgreSQL) to digitize deep-cleaning compliance, scheduled maintenance shutdowns, microbiological validations, and visual reporting in the Brewhouse area.",
+      "Real-time platform powered by Supabase (PostgreSQL) for managing and tracking the Master Cleaning Schedule (PML) and operational tasks across Cold Block and Brewhouse, with operator assignment and compliance history.",
     tech: ["React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
     github: "https://github.com/JPflores20/cocimientos-clean-hub",
     demo: "https://pml-cleanpro.web.app/",
@@ -46,10 +46,10 @@ export const proyectos_industriales_en: ProyectoPortafolio[] = [
     youtube: null,
   },
   {
-    title: "Levadura CCZ — Yeast Quality Control",
-    short_desc: "Cell viability monitoring, fermentation tracking & PDF reports",
+    title: "Levadura CCZ — Yeast Quality Control HMI",
+    short_desc: "Analytical HMI for yeast viability, fermentation kinetics & PDF reports",
     full_desc:
-      "Web system for yeast management quality control and traceability at Zacatecas Brewery. Automates cell count logging, viability tracking, dosing calculations, and automated PDF technical report generation.",
+      "Human-Machine Interface (HMI) for analytical yeast process control at Zacatecas Brewery: tracking cell viability, fermentation kinetics, brewing rest periods, and automated PDF technical reporting.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Recharts", "jsPDF"],
     github: "https://github.com/JPflores20/levadura-ccz",
     demo: "https://levadura-7427a.web.app/",
@@ -59,10 +59,10 @@ export const proyectos_industriales_en: ProyectoPortafolio[] = [
   },
   {
     title: "PRP One View — Industrial Safety Map",
-    short_desc: "Interactive plant hazard mapping & safety audit dashboard",
+    short_desc: "Interactive plant floor plans for PRP audits & hazard mapping",
     full_desc:
-      "Interactive geospatial application for industrial hazard mapping, facility risk-point tracking, and real-time visualization of operational safety compliance across brewery zones.",
-    tech: ["React", "TypeScript", "Interactive Canvas", "Recharts", "Tailwind CSS"],
+      "Interactive plant floor plan visualization for Prerequisite Program (PRP) audits, risk maps across operational areas (Brewhouse, Cold Block), and safety compliance rankings.",
+    tech: ["React", "TypeScript", "Interactive Floor Plans", "Recharts", "Tailwind CSS"],
     github: "https://github.com/JPflores20/industrial-safety-map",
     demo: "https://safety-map-907c2.web.app/",
     play_store: null,
@@ -70,23 +70,11 @@ export const proyectos_industriales_en: ProyectoPortafolio[] = [
     youtube: null,
   },
   {
-    title: "Farol KPIs — Process Intelligence",
-    short_desc: "Executive traffic-light dashboard for critical plant KPIs",
+    title: "MAZ HUB — Continuous Improvement & VPO (PDCA & RDA)",
+    short_desc: "Comprehensive PDCA, RDA, KPI trees & Kanban management",
     full_desc:
-      "Traffic-light (Farol) visualization system for monitoring operational and quality KPIs across the plant, supporting bulk spreadsheet ingestion (SheetJS), variance analysis, and monthly target tracking.",
-    tech: ["React", "TypeScript", "Recharts", "SheetJS (XLSX)", "Tailwind CSS"],
-    github: "https://github.com/ingsoftcecy-svg/farol-kpis",
-    demo: "https://farol-aa906.web.app/",
-    play_store: null,
-    app_store: null,
-    youtube: null,
-  },
-  {
-    title: "MAZ HUB — Plant Digitalization Portal",
-    short_desc: "Centralized hub for operational dashboards & engineering tools",
-    full_desc:
-      "Centralized digital ecosystem unifying access to engineering, maintenance, quality, and production web applications across the Middle Americas Zone (MAZ) in a modern, responsive interface.",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Shadcn UI", "Framer Motion"],
+      "Corporate platform for comprehensive management of continuous improvement methodologies (PDCA, RDA, KPI trees, and Kanban boards) designed for the Young Talents program and operational plant personnel.",
+    tech: ["React", "TypeScript", "VPO (PDCA & RDA)", "Shadcn UI", "Framer Motion"],
     github: "https://github.com/JPflores20/MAZ-HUB",
     demo: "https://maz-pdca-hub.web.app/",
     play_store: null,
@@ -94,11 +82,11 @@ export const proyectos_industriales_en: ProyectoPortafolio[] = [
     youtube: null,
   },
   {
-    title: "Operational Autonomy Dashboard",
-    short_desc: "Technical maturity assessment & operator training analytics",
+    title: "Autonomy Dashboard / Brewery Dashboard Pro",
+    short_desc: "TPM dashboard, SKAP Matrix, L6/L7/L8 guides & autonomous rankings",
     full_desc:
-      "Analytical dashboard to evaluate and track technical skill development and operational autonomy across plant teams, automatically parsing Excel matrices and rendering progress charts by shift and area.",
-    tech: ["React", "TypeScript", "SheetJS (XLSX)", "Recharts", "Tailwind CSS"],
+      "TPM brewing dashboard monitoring real-time operational autonomy, SKAP Matrix, multi-skill technical guides (L6, L7, L8), training progress, and autonomous team rankings across Brewhouse, Cold Block, and Maintenance.",
+    tech: ["React", "TypeScript", "TPM & SKAP", "SheetJS (XLSX)", "Recharts"],
     github: "https://github.com/ingsoftcecy-svg/dashboardDesaarrllo",
     demo: "https://preview-bbe71.web.app/",
     play_store: null,
@@ -106,11 +94,11 @@ export const proyectos_industriales_en: ProyectoPortafolio[] = [
     youtube: null,
   },
   {
-    title: "Brewhouse Schedule (BrewMan Dashboard)",
-    short_desc: "Operational routine & shift planning for brewhouse teams",
+    title: "Brewhouse Verification Schedule (BrewMan)",
+    short_desc: "CIP cleaning planning, densities & attenuation curves",
     full_desc:
-      "Digital daily, weekly, and monthly scheduling dashboard for brewhouse supervisors and operators, streamlining critical task assignment, operational checklists, and shift handovers.",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Shadcn UI", "Lucide Icons"],
+      "Web application for planning, controlling, and tracking CIP cleanings and preventive/routine maintenance in the Hot Block (Brewhouse) by shift, featuring critical alerts, densities, and attenuation curves.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "CIP & Brewhouse", "Lucide Icons"],
     github: "https://github.com/JPflores20/brewman-dashboard",
     demo: "https://agenda-de-control-de-procesos.web.app/",
     play_store: null,
