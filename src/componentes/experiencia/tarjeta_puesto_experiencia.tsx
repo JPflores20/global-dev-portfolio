@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Briefcase, ChevronDown, ChevronUp, FolderGit2 } from "lucide-react";
+import { Briefcase, ChevronDown, ChevronUp, ExternalLink, FolderGit2, Github } from "lucide-react";
 import { use_idioma } from "@/contextos/contexto_idioma";
 import { ModalProyectoExperiencia } from "@/componentes/experiencia/modal_proyecto_experiencia";
 import type {
@@ -81,7 +81,7 @@ export function TarjetaPuestoExperiencia({
         }`}
       >
         <motion.div
-          className="glass-card p-6 transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:border-primary/50"
+          className="glass-card overflow-hidden p-6 transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:border-primary/50"
           initial={{ opacity: 0, x: alinear_a_izquierda ? -100 : 100 }}
           animate={esta_en_vista ? { opacity: 1, x: 0 } : {}}
           transition={{
@@ -95,7 +95,7 @@ export function TarjetaPuestoExperiencia({
             <div className="p-3 rounded-xl gradient-bg text-white shrink-0">
               <Briefcase className="h-6 w-6" />
             </div>
-            <div className="w-full">
+            <div className="flex-1 min-w-0">
               <h3 className="text-xl font-bold text-foreground">
                 {puesto_experiencia.role}
               </h3>
@@ -119,11 +119,17 @@ export function TarjetaPuestoExperiencia({
                       onClick={() => establecer_proyecto_modal_activo(proyecto_empresa)}
                       className="w-full text-left rounded-lg bg-background/60 p-3 border border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-pointer"
                     >
-                      <div className="flex items-center gap-2 mb-1">
-                        <FolderGit2 className="h-4 w-4 text-primary shrink-0" />
-                        <h4 className="text-sm font-semibold text-foreground">
-                          {proyecto_empresa.nombre_proyecto}
-                        </h4>
+                      <div className="flex items-start justify-between gap-2 mb-1">
+                        <div className="flex items-start gap-2 min-w-0 flex-1">
+                          <FolderGit2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                          <h4 className="text-sm font-semibold text-foreground break-words leading-snug">
+                            {proyecto_empresa.nombre_proyecto}
+                          </h4>
+                        </div>
+                        <div className="flex items-center gap-1.5 shrink-0 text-primary">
+                          {proyecto_empresa.url_demo && <ExternalLink className="h-3.5 w-3.5" />}
+                          {proyecto_empresa.url_repositorio && <Github className="h-3.5 w-3.5" />}
+                        </div>
                       </div>
                       <p className="text-xs text-muted-foreground leading-relaxed mb-2">
                         {proyecto_empresa.descripcion_proyecto}

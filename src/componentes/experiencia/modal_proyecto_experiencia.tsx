@@ -1,9 +1,10 @@
 /**
  * @file modal_proyecto_experiencia.tsx
- * @description Diálogo modal que muestra la ficha técnica detallada de un sistema desarrollado dentro de la experiencia laboral.
+ * @description Diálogo modal que muestra la ficha técnica detallada, stack y enlaces de un sistema desarrollado dentro de la experiencia laboral.
  */
 
-import { Briefcase, Cpu, FolderGit2 } from "lucide-react";
+import { Briefcase, Cpu, ExternalLink, FolderGit2, Github } from "lucide-react";
+import { use_idioma } from "@/contextos/contexto_idioma";
 import {
   Dialog,
   DialogContent,
@@ -12,6 +13,7 @@ import {
   DialogTitle,
 } from "@/componentes/ui/dialogo";
 import { Badge } from "@/componentes/ui/insignia";
+import { Button } from "@/componentes/ui/boton";
 import type { ProyectoDestacadoExperiencia } from "@/traducciones/indice_traducciones";
 
 /**
@@ -26,7 +28,7 @@ interface PropiedadesModalProyectoExperiencia {
 }
 
 /**
- * Renderiza un modal con la información extendida del proyecto industrial y su stack tecnológico.
+ * Renderiza un modal con la información extendida del proyecto industrial, su stack tecnológico y enlaces externos.
  *
  * @param {PropiedadesModalProyectoExperiencia} propiedades_modal - Proyecto seleccionado, metadatos del puesto y callback de cierre.
  * @returns {JSX.Element} Diálogo accesible con detalles del sistema.
@@ -38,6 +40,8 @@ export function ModalProyectoExperiencia({
   periodo_laboral,
   al_cerrar_modal,
 }: PropiedadesModalProyectoExperiencia): JSX.Element {
+  const { textos_traducidos } = use_idioma();
+
   return (
     <Dialog
       open={Boolean(proyecto_seleccionado)}
@@ -92,6 +96,37 @@ export function ModalProyectoExperiencia({
                   )
                 )}
               </div>
+
+              {(proyecto_seleccionado.url_demo ||
+                proyecto_seleccionado.url_repositorio) && (
+                <div className="flex flex-wrap gap-3 pt-3 border-t border-border/60">
+                  {proyecto_seleccionado.url_demo && (
+                    <Button className="flex-1 gap-2 gradient-bg text-white" size="sm" asChild>
+                      <a
+                        href={proyecto_seleccionado.url_demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        {textos_traducidos.projects.live_demo}
+                      </a>
+                    </Button>
+                  )}
+
+                  {proyecto_seleccionado.url_repositorio && (
+                    <Button variant="outline" className="flex-1 gap-2" size="sm" asChild>
+                      <a
+                        href={proyecto_seleccionado.url_repositorio}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="h-4 w-4" />
+                        {textos_traducidos.projects.view_code}
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              )}
             </div>
           </>
         )}

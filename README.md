@@ -38,14 +38,14 @@ global-dev-portfolio/
 │   │   ├── traducciones_en.ts                    # Textos del portafolio en inglés
 │   │   ├── experiencia_en.ts                     # Historial de 6 cargos profesionales en inglés
 │   │   ├── sistemas_grupo_modelo_en.ts           # Catálogo de los 16 sistemas/suites en Grupo Modelo (EN)
-│   │   ├── proyectos_en.ts                       # Catálogo consolidado de proyectos en inglés (12 proyectos)
-│   │   ├── proyectos_industriales_en.ts          # Catálogo de los 8 sistemas de Grupo Modelo con demo/repo (EN)
+│   │   ├── proyectos_en.ts                       # Catálogo consolidado de proyectos en inglés (19 proyectos)
+│   │   ├── proyectos_industriales_en.ts          # Catálogo de los 10 sistemas de Grupo Modelo con demo/repo (EN)
 │   │   ├── descripciones_tecnologias_en.ts       # Descripciones técnicas del stack en inglés
 │   │   ├── traducciones_es.ts                    # Textos del portafolio en español
 │   │   ├── experiencia_es.ts                     # Historial de 6 cargos profesionales en español
 │   │   ├── sistemas_grupo_modelo_es.ts           # Catálogo de los 16 sistemas/suites en Grupo Modelo (ES)
-│   │   ├── proyectos_es.ts                       # Catálogo consolidado de proyectos en español (12 proyectos)
-│   │   ├── proyectos_industriales_es.ts          # Catálogo de los 8 sistemas de Grupo Modelo con demo/repo (ES)
+│   │   ├── proyectos_es.ts                       # Catálogo consolidado de proyectos en español (19 proyectos)
+│   │   ├── proyectos_industriales_es.ts          # Catálogo de los 10 sistemas de Grupo Modelo con demo/repo (ES)
 │   │   ├── descripciones_tecnologias_es.ts       # Descripciones técnicas del stack en español
 │   │   └── indice_traducciones.ts                # Punto de acceso centralizado al catálogo bilingüe
 │   ├── servicios/
@@ -88,7 +88,8 @@ global-dev-portfolio/
 │   │   │   ├── tarjeta_puesto_experiencia.tsx    # Tarjeta de puesto laboral con vista colapsable de proyectos
 │   │   │   └── modal_proyecto_experiencia.tsx    # Modal interactivo con detalle y stack del sistema industrial
 │   │   ├── proyectos/
-│   │   │   ├── seccion_proyectos.tsx             # Galería de proyectos destacados y estado del modal
+│   │   │   ├── seccion_proyectos.tsx             # Galería filtrable de los 19 proyectos y estado del modal
+│   │   │   ├── catalogo_imagenes_proyectos.ts    # Catálogo ordenado de portadas y límites de paginación
 │   │   │   ├── tarjeta_proyecto.tsx              # Tarjeta individual con enlaces a código, demo y tiendas
 │   │   │   ├── modal_detalle_proyecto.tsx        # Diálogo modal con información extendida del proyecto
 │   │   │   └── iconos_tiendas_aplicaciones.tsx   # Iconos vectoriales SVG (Google Play, App Store, WhatsApp)

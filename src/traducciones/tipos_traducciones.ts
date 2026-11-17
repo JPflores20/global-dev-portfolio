@@ -38,6 +38,8 @@ export interface ProyectoDestacadoExperiencia {
   nombre_proyecto: string;
   descripcion_proyecto: string;
   tecnologias_utilizadas: string[];
+  url_demo?: string;
+  url_repositorio?: string;
 }
 
 /**
